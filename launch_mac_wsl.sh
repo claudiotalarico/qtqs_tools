@@ -12,7 +12,7 @@ mkdir -p "$HOST_DESIGN_DIR"
 # ============================================================================
 
 # =========================== DOCKER_TAG CONFIGURATION =======================
-# if DOCKER_TAG is passed from the outside, use it, otherwise, default to 25.1
+# if DOCKER_TAG is passed from the outside, use it. Otherwise, default to 25.1
 DOCKER_TAG="${DOCKER_TAG:-25.1}"
 
 # Extract MAC from license file
