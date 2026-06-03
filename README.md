@@ -32,8 +32,7 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
 
   To override the default values for <mark>`DOCKER_TAG`</mark> (`25.1`) and <mark>`HOST_DESIGN_DIR`</mark> (`$HOME/fpga-designs`), define and export them in `start_x.sh`.
 
-**NOTE:** The way the docker container is started through the provided script `start_x.sh` assumes that the license is at:
-`$HOME/licenses/questa.lic`
+**NOTE:** By default, the `start_x.sh` script assumes the license file is located at `$HOME/licenses/questa.lic`
 
 The docker has been tested on macOS Monterey 12.7.6, Linux Ubuntu 24.04 LTS, and WSL2. 
 
