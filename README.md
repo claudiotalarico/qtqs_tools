@@ -30,7 +30,7 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
   ./start_x.sh
   ```
 
-  If you want to change the default values of DOCKER_TAG (`25.1`) and HOST_DESIGN_DIR (`$HOME/fpga_designs`) define and export the variables in `start_x.sh`.
+  To override the default values for <mark>`DOCKER_TAG`</mark> (`25.1`) and <mark>`HOST_DESIGN_DIR`</mark> (`$HOME/fpga-designs`), define and export them in `start_x.sh`.
 
 **NOTE:** The way the docker container is started through the provided script `start_x.sh` assumes that the license is at:
 `$HOME/licenses/questa.lic`
