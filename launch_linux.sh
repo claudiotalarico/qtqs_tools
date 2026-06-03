@@ -9,7 +9,6 @@ sleep 1          # give socat a moment to bind the port
 # If HOST_DESIGN_DIR is passed from the outside, use it. 
 # Otherwise, default to ~/fpga_design
 HOST_DESIGN_DIR="${HOST_DESIGN_DIR:-$HOME/fpga-designs}"
-
 # Create the host directory if it doesn't exist yet
 mkdir -p "$HOST_DESIGN_DIR"
 # ============================================================================
