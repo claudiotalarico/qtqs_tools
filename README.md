@@ -10,6 +10,7 @@ There are currently no official roadmaps to release a native ARM64 version for m
 
 **Step 1: Clone/download this GitHub repository onto your computer**
 ```
+cd ~
 git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
 ```
 
