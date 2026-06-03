@@ -18,3 +18,13 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
 **Step 3: Start and Use a Docker Container based on our qtqs_tools image**
 
 
+The docker assumes that the license is at:
+`$HOME/licenses/questa.lic`
+
+## Installed tools and devices
+
+- Quartus Lite 25.1
+- Questa FSE
+- Cyclone
+- CycloneV
+
