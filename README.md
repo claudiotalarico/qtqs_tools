@@ -17,9 +17,17 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
 
 **Step 3: Start and Use a Docker Container based on our qtqs_tools image**
 
+The docker has been tested on macOS Monterey 12.7.6, Linux Ubuntu 24.04 LTS, and WSL2. 
 
-The docker assumes that the license is at:
+Questa FSE requires a license.   
+Browse to the [Altera's Self-Service Licensing Center](https://www.altera.com/SSLC) and generate the license for Questa starter Edition for your Host NIC ID.
+   
+Change the name of the license file into `questa.lic` and put it at `~/licenses/questa.lic`.<br>
+
+NOTE: The way the docker container is started through the provided script `` assumes that the license is at:
 `$HOME/licenses/questa.lic`
+
+
 
 ## Installed tools and devices
 
