@@ -24,11 +24,14 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
   Change the name of the license file into `questa.lic` and put it at `~/licenses/questa.lic`.<br>
 
 - Start the docker using the following script:
+  ```
+  cd ~/qtqs_tools
+  ./start_x.sh
+  ```
 
 
-NOTE: The way the docker container is started through the provided script `` assumes that the license is at:
+NOTE: The way the docker container is started through the provided script `start_x.sh` assumes that the license is at:
 `$HOME/licenses/questa.lic`
-
 
 The docker has been tested on macOS Monterey 12.7.6, Linux Ubuntu 24.04 LTS, and WSL2. 
 
