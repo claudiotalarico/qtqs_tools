@@ -32,15 +32,12 @@ HOSTID=$(grep -i HOSTID "$HOME/licenses/questa.lic" \
 
 echo "Using MAC address: $HOSTID"
 
-# Linux machine
-# HOSTID=7831c1d6abfa
-
 # Kill and remove any existing quartus-lite containers
 docker kill $(docker ps -q --filter ancestor=quartus-lite:25.1) 2>/dev/null
 docker rm $(docker ps -aq --filter ancestor=quartus-lite:25.1) 2>/dev/null
 
 # pull the image from Docker Hub
-# docker pull ctalarico/qtqs_tools:$DOCKER_TAG
+docker pull ctalarico/qtqs_tools:$DOCKER_TAG
 
 docker run -it \
     --mac-address="$HOSTID" \
@@ -61,5 +58,3 @@ docker run -it \
         exec /bin/bash
     "
 
-#    optional: insert before quartus-lite:25.1
-#    -v ~/.altera.quartus:/home/fpga-user/.altera.quartus \
