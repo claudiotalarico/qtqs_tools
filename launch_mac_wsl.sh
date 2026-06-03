@@ -11,6 +11,10 @@ HOST_DESIGN_DIR="${HOST_DESIGN_DIR:-$HOME/fpga-designs}"
 mkdir -p "$HOST_DESIGN_DIR"
 # ============================================================================
 
+# =========================== DOCKER_TAG CONFIGURATION =======================
+# if DOCKER_TAG is passed from the outside, use it. Otherwise, default to 25.1
+DOCKER_TAG="${DOCKER_TAG:-25.1}"
+
 # Extract MAC from license file
 HOSTID=$(grep -i HOSTID "$HOME/licenses/questa.lic" \
          | grep -oE 'HOSTID=[0-9a-fA-F]+' \
@@ -24,6 +28,9 @@ echo "Using MAC address: $HOSTID"
 docker kill $(docker ps -q --filter ancestor=quartus-lite:25.1) >/dev/null 2>&1
 docker rm $(docker ps -aq --filter ancestor=quartus-lite:25.1) >/dev/null 2>&1
 
+# pull the image from Docker Hub
+docker pull ctalarico/qtqs_tools:$DOCKER_TAG
+
 docker run -it \
     --mac-address="$HOSTID" \
     --platform linux/amd64 \
@@ -33,8 +40,8 @@ docker run -it \
     -e LM_LICENSE_FILE=/licenses/questa.lic \
     -v "$HOME/licenses/questa.lic":/licenses/questa.lic:ro \
     -v "$HOST_DESIGN_DIR":/fpga-designs \
-    -e DOCKER_NAME=quartus-25.1 \
-    quartus-lite:25.1 \
+    -e DOCKER_NAME=qtqs_tools \
+    ctalarico/qtqs_tools:$DOCKER_TAG \
     /bin/bash -c "
         xfce4-terminal 2>/dev/null &
         echo '========================================='

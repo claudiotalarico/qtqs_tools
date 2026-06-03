@@ -13,6 +13,10 @@ HOST_DESIGN_DIR="${HOST_DESIGN_DIR:-$HOME/fpga-designs}"
 mkdir -p "$HOST_DESIGN_DIR"
 # ============================================================================
 
+# ========================== DOCKER_TAG CONFIGURATION ========================
+# If DOCKER_TAG is passed from the outside, use it. Otherwise, default to 25.1
+DOCKER_TAG="${DOCKER_TAG:-25.1}"
+
 # Generate a temporary Xauthority file with a cookie valid for host.docker.internal
 XAUTH_TMP=$(mktemp "$HOME/.xauth_tmp_XXXXX") 
 xauth nlist "$DISPLAY" | sed 's/^..../ffff/' | xauth -f "$XAUTH_TMP" nmerge -
@@ -27,12 +31,12 @@ HOSTID=$(grep -i HOSTID "$HOME/licenses/questa.lic" \
 
 echo "Using MAC address: $HOSTID"
 
-# Linux machine
-# HOSTID=7831c1d6abfa
-
 # Kill and remove any existing quartus-lite containers
 docker kill $(docker ps -q --filter ancestor=quartus-lite:25.1) 2>/dev/null
 docker rm $(docker ps -aq --filter ancestor=quartus-lite:25.1) 2>/dev/null
+
+# pull the image from Docker Hub
+docker pull ctalarico/qtqs_tools:$DOCKER_TAG
 
 docker run -it \
     --mac-address="$HOSTID" \
@@ -43,8 +47,8 @@ docker run -it \
     -e LM_LICENSE_FILE=/licenses/questa.lic \
     -v "$HOME/licenses/questa.lic":/licenses/questa.lic:ro \
     -v "$HOST_DESIGN_DIR":/fpga-designs \
-    -e DOCKER_NAME=quartus-25.1 \
-    quartus-lite:25.1 \
+    -e DOCKER_NAME=qtqs_tools \
+    ctalarico/qtqs_tools:$DOCKER_TAG \
     /bin/bash -c "
         xfce4-terminal 2>/dev/null &
         echo '========================================='
@@ -53,5 +57,3 @@ docker run -it \
         exec /bin/bash
     "
 
-#    optional: insert before quartus-lite:25.1
-#    -v ~/.altera.quartus:/home/fpga-user/.altera.quartus \
