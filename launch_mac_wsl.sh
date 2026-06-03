@@ -29,7 +29,7 @@ docker kill $(docker ps -q --filter ancestor=quartus-lite:25.1) >/dev/null 2>&1
 docker rm $(docker ps -aq --filter ancestor=quartus-lite:25.1) >/dev/null 2>&1
 
 # pull the image from Docker Hub
-# docker pull ctalarico/qtqs_tools:$DOCKER_TAG
+docker pull ctalarico/qtqs_tools:$DOCKER_TAG
 
 docker run -it \
     --mac-address="$HOSTID" \
