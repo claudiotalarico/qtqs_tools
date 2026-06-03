@@ -14,3 +14,7 @@ git clone --depth=1 https://github.com/ctalarico/qtqs_tools.git
 ```
 
 **Step 2: Install and start Docker on your computer**
+
+**Step 3: Start and Use a Docker Container based on our qtqs_tools image**
+
+
