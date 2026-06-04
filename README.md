@@ -16,7 +16,7 @@ git clone --depth=1 https://github.com/claudiotalarico/qtqs_tools.git
 
 **Step 2: Install and start Docker on your computer**
 - [Docker Documentation](https://docs.docker.com/)
-- [Get Docker](https://docs.docker.com/get-started/get-docker/)
+- [Get Docker Desktop](https://docs.docker.com/get-started/get-docker/)
 
 **Step 3: Start and Use a Docker Container based on our qtqs_tools image**
 
