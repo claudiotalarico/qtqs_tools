@@ -1,5 +1,5 @@
-# QTQS-TOOLS
-**qtqs-tools** is a docker container for running Quartus Lite (version 25.1) and Quartus FSE.  
+# QTQS_TOOLS
+**qtqs_tools** is a docker container for running Quartus Lite (version 25.1) and Quartus FSE.  
 
 The docker image is built on Ubuntu 24.04 LTS, and the CPU architecture supported is `x86_64/amd64`.
 
